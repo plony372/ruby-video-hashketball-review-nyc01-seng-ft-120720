@@ -127,8 +127,16 @@ def game_hash
   }
 end
 
-# Write code here
-def num_points_scored player_name
-players = game_hash[:home][:players].merge(game_hash[:away][:players])
-players[player_name][:points]
+Write code here
+def num_points_scored(name)
+  count = 0
+  while game_hash[:home][:players].length > count
+  if game_hash[:home][:players][count][:player_name] == name
+      return game_hash[:home][:players][count][:points]
+    elsif game_hash[:away][:players][count][:player_name] == name
+         return game_hash[:away][:players][count][:points]
+         end
+     count += 1
+     end
+  endayer_name][:points]
 end
