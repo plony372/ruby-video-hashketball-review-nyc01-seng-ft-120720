@@ -128,15 +128,15 @@ def game_hash
 end
 
 
-def num_points_scored(name)
-  count = 0
-  while game_hash[:home][:players].length > count
-  if game_hash[:home][:players][count][:player_name] == name
-      return game_hash[:home][:players][count][:points]
-    elsif game_hash[:away][:players][count][:player_name] == name
-         return game_hash[:away][:players][count][:points]
-         end
-     count += 1
-     end
-  endayer_name][:points]
+def players
+game_hash[:home][:players].merge(game_hash[:away][:players])
+end
+
+
+def num_points_scored player_name
+players[player_name][:points]
+end
+
+def shoe_size player_name
+players[player_name][:shoe]
 end
